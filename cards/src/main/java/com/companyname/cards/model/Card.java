@@ -1,4 +1,4 @@
-package cards.src.main.java.com.companyname.cards.model;
+package com.companyname.cards.model;
 public class Card {
     /**
      * Value of the card. Aces = 1, Kings = 13

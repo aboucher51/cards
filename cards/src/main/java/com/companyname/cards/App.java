@@ -1,4 +1,4 @@
-package cards.src.main.java.com.companyname.cards;
+package com.companyname.cards;
 
 /**
  * Hello world!

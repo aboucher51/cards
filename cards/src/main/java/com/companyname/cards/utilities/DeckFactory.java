@@ -1,9 +1,11 @@
-package cards.src.main.java.com.companyname.cards.utilities;
+package com.companyname.cards.utilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import cards.src.main.java.com.companyname.cards.model.Card;
-import cards.src.main.java.com.companyname.cards.model.Suit;
+import com.companyname.cards.model.Card;
+import com.companyname.cards.model.Suit;
+
+
 
 public class DeckFactory {
 private static final int NUMBER_OF_CARDS_IN_SUIT = 13;

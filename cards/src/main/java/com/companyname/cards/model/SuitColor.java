@@ -1,4 +1,4 @@
-package cards.src.main.java.com.companyname.cards.model;
+package com.companyname.cards.model;
 public enum SuitColor {
     RED,BLACK
 }
