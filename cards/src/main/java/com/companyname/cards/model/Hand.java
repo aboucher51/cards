@@ -35,4 +35,8 @@ public class Hand {
     public boolean contains(int cardValue){
         return cards.stream().filter(card -> card.getNumber() == cardValue).count() > 0;
     }
+
+    public List<Card> getCards(){
+        return cards;
+    }
 }

@@ -10,7 +10,7 @@ public class Card {
     private static Map<Integer, String> cardNameMappings;
     
     /**
-     * Value of the card. Aces = 1, Kings = 13
+     * Value of the card
      */
     private int number;
     private Suit suit;
@@ -22,6 +22,9 @@ public class Card {
 
     public int getNumber() {
         return number;
+    }
+    protected void setNumber(int number){
+        this.number = number;
     }
     public Suit getSuit() {
         return suit;
@@ -54,7 +57,6 @@ public class Card {
 
     {
         cardNameMappings = new HashMap<>();
-        cardNameMappings.put(1, "Ace");
         cardNameMappings.put(11, "Jack");
         cardNameMappings.put(12, "Queen");
         cardNameMappings.put(13, "King");
@@ -65,4 +67,7 @@ public class Card {
         return cardNameMappings.getOrDefault(number, String.valueOf(number));
     }
 
+    public boolean isFaceCard(){
+        return (number == 11 || number == 12 || number == 13);
+    }
 }

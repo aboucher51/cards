@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Stack;
 
+import com.companyname.cards.model.AceCard;
 import com.companyname.cards.model.Card;
 import com.companyname.cards.model.Suit;
 import com.companyname.cards.utilities.DeckFactory;
@@ -14,7 +15,7 @@ import org.junit.jupiter.api.Test;
 public class DeckFactoryTest {
     
     @Test
-    public void testSpecificCards()
+    public void testSpecificCardsInStandardDeck()
     {
         Stack<Card> cardsUnderTest = DeckFactory.createNewStandardDeck();
         assertEquals(52, cardsUnderTest.size());
@@ -27,7 +28,7 @@ public class DeckFactoryTest {
     }
 
     @Test
-    public void testSuits(){
+    public void testCorrectNumbersPerSuit(){
         Stack<Card> cardsUnderTest = DeckFactory.createNewStandardDeck();
         for (Suit suit : Suit.values()) {
             assertEquals(DeckFactory.NUMBER_OF_CARDS_IN_SUIT, cardsUnderTest.stream().filter(card -> card.getSuit().equals(suit)).count());
@@ -35,11 +36,27 @@ public class DeckFactoryTest {
     }
 
     @Test
-    public void testNumbers(){
+    public void testCorrectSuitsPerNumbers(){
         Stack<Card> cardsUnderTest = DeckFactory.createNewStandardDeck();
         for(int i=1;i <= DeckFactory.NUMBER_OF_CARDS_IN_SUIT;i++){
             int number = i;
             assertEquals(Suit.values().length, cardsUnderTest.stream().filter(card -> card.getNumber() == number).count());
+        }
+    }
+
+    @Test
+    public void test1AceInEachSuit(){
+        Stack<Card> cardsUnderTest = DeckFactory.createNewStandardDeck();
+        for (Suit suit : Suit.values()) {
+            assertEquals(1, cardsUnderTest.stream().filter(card -> card.getSuit().equals(suit)).filter(card -> card instanceof AceCard).count());
+        }
+    }
+
+    @Test
+    public void testDefaultHighAces(){
+        Stack<Card> cardsUnderTest = DeckFactory.createNewStandardDeck(true);
+        for (Suit suit : Suit.values()) {
+            assertEquals(1, cardsUnderTest.stream().filter(card -> card.getSuit().equals(suit)).filter(card -> card instanceof AceCard).filter(card -> card.getNumber() == 10).count());
         }
     }
 }

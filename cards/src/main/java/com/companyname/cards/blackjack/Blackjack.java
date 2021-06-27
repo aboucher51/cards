@@ -12,8 +12,8 @@ public class Blackjack {
     public static final int ACE_VALUE = 1;
     public static final int DEALER_LIMIT = 17;
 
-    Hand playerHand = new Hand();
-    Hand dealerHand = new Hand();
+    BlackjackHand playerHand = new BlackjackHand();
+    BlackjackHand dealerHand = new BlackjackHand();
 
     CardCollection deck;
 
@@ -35,5 +35,9 @@ public class Blackjack {
         }
         //TODO deal with aces
     }
+
+
+
+    
 
 }
