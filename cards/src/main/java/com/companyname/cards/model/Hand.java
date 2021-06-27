@@ -5,14 +5,22 @@ import java.util.Collection;
 import java.util.List;
 
 public class Hand {
-    List<Card> cards = new ArrayList<>();
+    private String handOwnerName = "defaultName";
+    private List<Card> cards = new ArrayList<>();
+
+    public Hand(){}
+    public Hand(String handOwnerName){
+        this.handOwnerName = handOwnerName;
+    }
 
     public void addCard(Card card){
         cards.add(card);
+        this.sum();
     }
 
     public void addCards(Collection<Card> newCards){
         cards.addAll(newCards);
+        this.sum();
     }
 
     public int sum(){
@@ -38,5 +46,9 @@ public class Hand {
 
     public List<Card> getCards(){
         return cards;
+    }
+
+    public String getHandOwnerName(){
+        return handOwnerName;
     }
 }
